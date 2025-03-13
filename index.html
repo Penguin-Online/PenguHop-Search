@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PenguHop Search</title>
+    <title>PenguHop  Search</title>
     <style>
         body {
             font-family: 'Courier New', monospace; /* Pixelated font */
@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-    <h1><span class="blink">PenguHop</span>  Search</h1>
+    <h1><span class="blink">PenguHop Search</span></h1>
     <table>
       <tr>
         <td colspan="2">
@@ -68,47 +68,24 @@
     </table>
 
     <script>
-function performSearch() {
-     const query = document.getElementById("searchQuery").value;
+        <script>
+    function performSearch() {
+        const query = document.getElementById("searchQuery").value;
         const resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = "<h3>Search Results:</h3>";
-        
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Chinstrap_penguin' target='_blank'>- Chinstrap Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Snares_penguin' target='_blank'>- Snares Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/African_penguin' target='_blank'>- African Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Penguins_of_Madagascar' target='_blank'>- Penguins of Madagascar</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Emperor_penguin' target='_blank'>- Emperor Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Chinstrap_penguin' target='_blank'>- Chinstrap Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Snares_penguin' target='_blank'>- Snares Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/African_penguin' target='_blank'>- African Penguin</a></p>";
-        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Penguins_of_Madagascar' target='_blank'>- Penguins of Madagascar</a></p>";
-    }
+        resultsDiv.innerHTML = "Searching...";
+        const searchResults = simulatePythonSearch(query);
+        if (searchResults.length > 0) {
+            resultsDiv.innerHTML = "<h3>Search Results:</h3>";
+            searchResults.forEach(result => {
+                // Create Wikipedia links
+                const wikipediaUrl = "https://en.wikipedia.org/wiki/" + encodeURIComponent(result);
+                resultsDiv.innerHTML += "<p><a href='" + wikipediaUrl + "' target='_blank'>- " + result + "</a></p>";
+            });
         } else {
             resultsDiv.innerHTML = "<p>No results found.</p>";
         }
     }
 
-         let wikipediaUrl = "";
-                switch (result) {
-                    case "Emperor Penguin":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Emperor_penguin";
-                        break;
-                    case "Fish":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Fish";
-                        break;
-                    case "Animal migration":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Animal_migration";
-                        break;
-                    case "Ice":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Ice";
-                        break;
-                    case "Nest":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Nest";
-                        break;
-                    case "Penguin":
-                        wikipediaUrl = "https://en.wikipedia.org/wiki/Penguin";
-                        
-                    
     function simulatePythonSearch(query) {
         const searchIndex = {
             "Emperor Penguins": "Emperor Penguin",
@@ -116,7 +93,6 @@ function performSearch() {
             "Migration": "Animal migration",
             "Ice Slides": "Ice",
             "Nesting": "Nest",
-            "Penguin": "Penguin"
         };
 
         const results = [];
@@ -132,7 +108,7 @@ function performSearch() {
         }
         return results;
     }
+</script>
     </script>
-<p>&copy; 2024 Penguin Online. Waddle into the Web! </p> 
 </body>
 </html>
