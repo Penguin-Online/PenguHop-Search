@@ -69,46 +69,45 @@
 
     <script>
      function performSearch() {
-            const query = document.getElementById("searchQuery").value;
-            const resultsDiv = document.getElementById("results");
-            resultsDiv.innerHTML = "Searching..."; // Show a loading message.
-
-            // Simulate the Python search function (replace with actual backend later)
-            const searchResults = simulatePythonSearch(query);
-
-            // Display the results
-            if (searchResults.length > 0) {
-                resultsDiv.innerHTML = "<h3>Search Results:</h3>";
-                searchResults.forEach(result => {
-                    resultsDiv.innerHTML += "<p>- " + result + "</p>";
-                });
-            } else {
-                resultsDiv.innerHTML = "<p>No results found.</p>";
-            }
+        const query = document.getElementById("searchQuery").value;
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "Searching...";
+        const searchResults = simulatePythonSearch(query);
+        if (searchResults.length > 0) {
+            resultsDiv.innerHTML = "<h3>Search Results:</h3>";
+            searchResults.forEach(result => {
+                // Create Wikipedia links
+                const wikipediaUrl = "https://en.wikipedia.org/wiki/" + encodeURIComponent(result);
+                resultsDiv.innerHTML += "<p><a href='" + wikipediaUrl + "' target='_blank'>- " + result + "</a></p>";
+            });
+        } else {
+            resultsDiv.innerHTML = "<p>No results found.</p>";
         }
+    }
 
-        function simulatePythonSearch(query) {
-            const searchIndex = {
-                "Emperor Penguins": "These penguins are the largest and live in Antarctica.",
-                "Fish": "Penguins love to eat fish, krill, and squid.",
-                "Migration": "Some penguins migrate long distances to find food.",
-                "Ice Slides": "Penguins often slide on their bellies across the ice.",
-                "Nesting": "Penguins build nests out of pebbles and ice.",
-            };
+    function simulatePythonSearch(query) {
+        const searchIndex = {
+            "Emperor Penguins": "Emperor Penguin",
+            "Fish": "Fish",
+            "Migration": "Animal migration",
+            "Ice Slides": "Ice",
+            "Nesting": "Nest",
+        };
 
-            const results = [];
-            const queryLower = query.toLowerCase();
+        const results = [];
+        const queryLower = query.toLowerCase();
 
-            for (const topic in searchIndex) {
-                if (searchIndex.hasOwnProperty(topic)) {
-                    const document = searchIndex[topic];
-                    if (topic.toLowerCase().includes(queryLower) || document.toLowerCase().includes(queryLower)) {
-                        results.push(document);
-                    }
+        for (const topic in searchIndex) {
+            if (searchIndex.hasOwnProperty(topic)) {
+                const document = searchIndex[topic];
+                if (topic.toLowerCase().includes(queryLower) || document.toLowerCase().includes(queryLower)) {
+                    results.push(document);
                 }
             }
-            return results;
         }
+        return results;
+    }
     </script>
+<p>© 2024 Penguin Online. Waddle into the Web! </p> 
 </body>
 </html>
