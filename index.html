@@ -68,18 +68,15 @@
     </table>
 
     <script>
-     function performSearch() {
-        const query = document.getElementById("searchQuery").value;
+function performSearch() {
         const resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = "Searching...";
-        const searchResults = simulatePythonSearch(query);
-        if (searchResults.length > 0) {
-            resultsDiv.innerHTML = "<h3>Search Results:</h3>";
-            searchResults.forEach(result => {
-                // Create Wikipedia links
-                const wikipediaUrl = "https://en.wikipedia.org/wiki/" + encodeURIComponent(result);
-                resultsDiv.innerHTML += "<p><a href='" + wikipediaUrl + "' target='_blank'>- " + result + "</a></p>";
-            });
+        resultsDiv.innerHTML = "<h3>Search Results:</h3>";
+        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Emperor_penguin' target='_blank'>- Emperor Penguin</a></p>";
+        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Chinstrap_penguin' target='_blank'>- Chinstrap Penguin</a></p>";
+        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Snares_penguin' target='_blank'>- Snares Penguin</a></p>";
+        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/African_penguin' target='_blank'>- African Penguin</a></p>";
+        resultsDiv.innerHTML += "<p><a href='https://en.wikipedia.org/wiki/Penguins_of_Madagascar' target='_blank'>- Penguins of Madagascar</a></p>";
+    }
         } else {
             resultsDiv.innerHTML = "<p>No results found.</p>";
         }
@@ -92,6 +89,7 @@
             "Migration": "Animal migration",
             "Ice Slides": "Ice",
             "Nesting": "Nest",
+            "Penguin": "Penguin"
         };
 
         const results = [];
